@@ -1,0 +1,290 @@
+@import 'framework.less';         // Get all the framework stuff
+
+/* ================================================================== *\
+   Styles ($styles)
+\* ================================================================== */
+
+a {
+    transition: all 150ms ease-out;
+    text-decoration: none;
+
+    &:hover {
+            color:@red !important;
+        }
+}
+
+hr {
+    width:50%;
+    border-color:@gray-light;
+    border-top: 1px solid @gray-lightest;
+    margin:3.5rem auto;
+}
+
+blockquote {
+    border-color:@red;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+.document {
+
+}
+/* ================================================================= *\
+   Site Header
+\* ================================================================== */
+
+.site-head {
+    padding:1rem 0;
+
+    a {
+        color: @heading-font-color;
+        line-height:1.75;
+    }
+
+    font-family: @nav-font-family;
+}
+
+.site-head-border {
+    border-bottom:1px solid @gray-lighter;
+
+}
+
+
+/*
+ *  Site Navigation
+ */
+
+.nav-item {
+    display:inline-block;
+}
+
+
+/* Medium-sized breakpoint 600px */
+@media only screen and (min-width: @grid-breakpoint-medium) {
+    @nav-vertical-pad : 1.5rem;
+
+    .site-head {
+        padding:@nav-vertical-pad 0;
+
+        a {
+            font-size:@8-size;
+            padding:@nav-vertical-pad 1rem;
+            line-height:1;
+        }
+    }
+}
+/* Large-sized breakpoint 960px */
+@media only screen and (min-width: @grid-breakpoint-large) {
+
+
+}
+
+
+/* ================================================================== *\
+   Main Area
+\* ================================================================== */
+
+.main {
+
+    #map {
+        height:500px;
+    }
+
+}
+
+.page-content {
+    margin:0 auto;
+    position: relative;
+}
+
+
+
+/* Medium-sized breakpoint */
+@media only screen and (min-width: @grid-breakpoint-medium) {
+
+    .main {
+
+    }
+
+    .page-content {
+
+    }
+}
+/* Large-sized breakpoint */
+@media only screen and (min-width: @grid-breakpoint-large) {
+    .page-content {
+
+
+    }
+}
+/* ================================================================== *\
+   Home Page
+\* ================================================================== */
+
+.home-head {
+    display:none;
+}
+
+.home-nav {
+
+    .team-listing {
+        width:800px;
+        margin:25px auto 125px;
+
+        a {
+            display:block;
+            height:100%;
+            min-height:200px;
+        }
+
+        .team-logo {
+            height:200px;
+            width:auto;
+            margin:0 auto;
+            display:block;
+        }
+
+        .team-info-wrap {
+            width:450px;
+            opacity:0;
+            position:absolute;
+            text-align:center;
+            left:50%;
+            margin:15px 0 0 -225px;
+            transition: all 500ms ease-in;
+        }
+
+        a:hover {
+            .team-info-wrap {
+                opacity:1;
+                color:@black;
+            }
+        }
+
+        .team-name {
+            display:none;
+        }
+
+        .team-about {
+            font-size:@9-size;
+
+        }
+    }
+}
+
+.home-info {
+    width:50%;
+    padding:20px;
+}
+
+.bridge {
+    img {
+        margin:0 auto;
+        display:block;
+    }
+}
+
+/* ================================================================== *\
+   Footer
+\* ================================================================== */
+
+.footer {
+    font-size:@9-size;
+    font-family: @heading-font-family;
+
+    .social {
+        font-size:1.75rem;
+        text-align: center;
+
+        a {
+            color: @heading-font-color;
+        }
+    }
+
+    a {
+        color: @heading-font-color;
+    }
+
+    .bottom {
+        border-top:1px solid @gray-lighter;
+        padding:1rem 0;
+        color: @gray;
+        letter-spacing: 1px;
+        text-align: center;
+
+
+        span {
+            display:block;
+        }
+    }
+
+    .useicons {
+        font-size:200%;
+        line-height:1rem;
+        vertical-align: text-top;
+    }
+}
+
+/* Medium-sized breakpoint */
+@media only screen and (min-width: @grid-breakpoint-medium) {
+
+    .footer {
+
+        .social {
+            width:100%;
+            line-height:100%;
+            height:50%;
+            position: absolute;
+            z-index:-1;
+
+            a {
+                color: @heading-font-color;
+            }
+        }
+
+        .bottom {
+            position: relative;
+            text-align: left;
+            z-index:2;
+
+            span {
+                display:inline-block;
+            }
+        }
+
+    }
+}
+
+/* Medium-sized breakpoint 600px */
+@media only screen and (min-width: @grid-breakpoint-medium) {
+
+}
+/* Large-sized breakpoint 960px */
+@media only screen and (min-width: @grid-breakpoint-large) {
+
+}
+
+
+/* ================================================================== *\
+   Error Messages
+\* ================================================================== */
+
+.flashes {
+    list-style-type: none;
+    text-align: center;
+}
+
+/* ================================================================== *\
+   Other
+\* ================================================================== */
+.useicons {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'icomoon' !important;
+    text-decoration: none;
+    color:inherit;
+}
+
+
+@import 'libs/cardinal/print.less';            // Inlined, barebones print stylesf

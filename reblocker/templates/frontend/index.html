@@ -1,0 +1,36 @@
+{% extends "frontend/_frontend_base.html" %}
+
+{% block title %}Reblocker | SFI{%- endblock -%}
+
+{%- block pageheader -%}
+<header class="page-head">
+    <h1>The Reblocker</h1>
+    <h2>Santa Fe Institute</h2>
+</header>
+{%- endblock -%}
+
+{%- block content -%}
+
+<form method=POST enctype="multipart/form-data" action="{{ url_for('.upload') }}">
+    <input type=file name="file[]" multiple>
+    <input type="submit" value="Submit">
+</form>
+
+<div id="map"></div>
+
+<ul>
+    <li>Upload shapefile (or other formats?)</li>
+    <li>Convert to geo/topoJSON (ogr2ogr or TopoJSON)</li>
+    <li>Zoom to location, Display original shapes on map</li>
+    <li>Run road script</li>
+    <li>Convert results to geo/topoJSON</li>
+    <li>Display results as new layer</li>
+</ul>
+
+{%- endblock content -%}
+
+
+{%- block pagefooter -%}
+<footer class="wrapper">
+</footer>
+{%- endblock -%}

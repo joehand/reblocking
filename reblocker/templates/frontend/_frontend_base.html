@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% import "macros/_css.html" as css %}
+
+{%- block css -%}
+    {{ css.render_css('main') }}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+{%- endblock -%}
+
+{%- block siteheader %}
+{%- endblock siteheader -%}
+
+{%- block footer_js %}
+    <script>
+        var {{ config.PROJECT }} = {}; //namespace everything under here.
+        var NAMESPACE = {{ config.PROJECT }}
+        {% if proj %}
+        {{config.PROJECT }}.proj = '{{proj|safe}}'
+        {% endif %}
+        {% if shapes %}
+        {{config.PROJECT }}.parcels = {{shapes|safe}}
+        {% endif %}
+        {% if roads %}
+        {{config.PROJECT }}.roads = {{roads|safe}}
+        {% endif %}
+    </script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/libs/proj4-compressed.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/libs/proj4leaflet.js')}}"></script>
+
+    {%- set js_name = 'main' %}
+    {%- assets filters="jsmin", depends=('**/*.js'),
+         output="build/" + js_name + ".%(version)s.min.js",
+      "js/" + js_name + ".js" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {%- endassets -%}
+{%- endblock footer_js %}
